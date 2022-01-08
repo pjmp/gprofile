@@ -22,6 +22,8 @@ cargo install gprofile
 
 Alternatively, you can download pre-build binaries from the [release page](https://github.com/pjmp/gprofile/releases) to you $PATH.
 
+Note: Resulting binary's name is `git-profile`.
+
 ## Usage
 
 ```shell

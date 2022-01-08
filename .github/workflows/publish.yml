@@ -16,16 +16,16 @@ jobs:
         include:
           - name: linux
             os: ubuntu-latest
-            artifact_name: gprofile
-            asset_name: gprofile-linux-amd64
+            artifact_name: git-profile
+            asset_name: git-profile-linux-amd64
           - name: windows
             os: windows-latest
-            artifact_name: gprofile.exe
-            asset_name: gprofile-windows-amd64
+            artifact_name: git-profile.exe
+            asset_name: git-profile-windows-amd64
           - name: macos
             os: macos-latest
-            artifact_name: gprofile
-            asset_name: gprofile-macos-amd64
+            artifact_name: git-profile
+            asset_name: git-profile-macos-amd64
 
     steps:
       - uses: actions/checkout@v1
