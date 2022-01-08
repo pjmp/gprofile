@@ -49,7 +49,7 @@ fn app_main() -> Result<(), Box<dyn Error>> {
                     }
                     _ => {
                         eprintln!(
-                            "{}: unknown option passed, run `--help` to get available options.",
+                            "{}: unknown option, pass `--help` to see all available options.",
                             env!("CARGO_PKG_NAME")
                         );
                         process::exit(1)

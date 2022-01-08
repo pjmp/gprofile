@@ -1,5 +1,5 @@
 use std::{
-    collections::HashMap,
+    collections::BTreeMap, // i want sorted keys
     env,
     error::Error,
     fs,
@@ -26,6 +26,7 @@ pub(crate) fn help() {
     eprintln!(
         "{app} {version}
 {description}
+
 USAGE:
   {app} [FLAGS]
   {app} [OPTIONS] <PROFILE>
@@ -71,6 +72,8 @@ pub(crate) fn init() -> Result<(), Box<dyn Error>> {
         let mut db = fs::File::create(db_path)?;
 
         db.write_all(DB_HEADER.as_bytes())?;
+
+        db.flush()?;
     }
 
     Ok(())
@@ -99,7 +102,7 @@ pub(crate) fn create() -> Result<(), Box<dyn Error>> {
 
     db.insert(
         profile,
-        HashMap::from([("email".to_string(), email), ("name".to_string(), name)]),
+        BTreeMap::from([("email".to_string(), email), ("name".to_string(), name)]),
     );
 
     write_to_db(db)?;
@@ -149,12 +152,10 @@ pub(crate) fn edit(profile: String) -> Result<(), Box<dyn Error>> {
 
     let email = prompt("Please input your git email: ")?;
 
-    let mut config = HashMap::new();
-
-    config.insert("name".to_string(), name);
-    config.insert("email".to_string(), email);
-
-    db.insert(profile, config);
+    db.insert(
+        profile,
+        BTreeMap::from([("email".to_string(), email), ("name".to_string(), name)]),
+    );
 
     write_to_db(db)?;
 
@@ -180,7 +181,7 @@ pub(crate) fn switch(profile: String) -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-type Db = HashMap<String, HashMap<String, String>>;
+type Db = BTreeMap<String, BTreeMap<String, String>>;
 
 pub(crate) fn write_to_db(db: Db) -> Result<(), Box<dyn Error>> {
     let contents = db
@@ -222,7 +223,7 @@ pub(crate) fn read_from_db() -> Result<Db, Box<dyn Error>> {
                 None
             }
         })
-        .fold(HashMap::new(), |mut acc: Db, line| {
+        .fold(BTreeMap::new(), |mut acc: Db, line| {
             let profile_and_key_value = &line.split('=').collect::<Vec<_>>();
 
             if profile_and_key_value.len() != 2 {
@@ -244,7 +245,7 @@ pub(crate) fn read_from_db() -> Result<Db, Box<dyn Error>> {
             if let Some(config) = acc.get_mut(&profile.to_string()) {
                 config.insert(key.trim().to_string(), value.trim().to_string());
             } else {
-                let mut config = HashMap::new();
+                let mut config = BTreeMap::new();
                 config.insert(key.trim().to_string(), value.trim().to_string());
                 acc.insert(profile.trim().to_string(), config);
             }

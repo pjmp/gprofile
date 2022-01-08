@@ -10,7 +10,7 @@
 
 There are many [similar](https://crates.io/search?q=git%20user) [tools](https://crates.io/search?q=git%20profile) that offer more features and look prettier than this. The main difference between them is this has [zero dependencies](./Cargo.toml) and my focus is on reducing compile times and binary size.
 
-The resulting binary building in `--release` mode is `432K` only (on my machine).
+The resulting binary building in `--release` mode is `452K` only (on my machine).
 
 ## Installation
 
@@ -30,7 +30,7 @@ Note: Resulting binary's name is `git-profile`.
 # list available profiles
 git profile --list
 
-# user work profile
+# use `work` profile
 git profile --use=work
 
 # delete `work` profile
