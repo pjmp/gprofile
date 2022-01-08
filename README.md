@@ -1,6 +1,16 @@
 # gprofile [![Crates.io](https://img.shields.io/crates/v/gprofile)](https://crates.io/crates/gprofile) ![License](https://img.shields.io/crates/l/gprofile)
 
-> Quickly switch git user, email with ease.
+> Quickly switch and manage multiple git profiles.
+
+## Demo
+
+[![A demonstration](./demo.gif)](./demo.gif)
+
+## Motivation
+
+There are many [similar](https://crates.io/search?q=git%20user) [tools](https://crates.io/search?q=git%20profile) that offer more features and look prettier than this. The main difference between them is this has [zero dependencies](./Cargo.toml) and my focus is on reducing compile times and binary size.
+
+The resulting binary building in `--release` mode is `432K` only (on my machine).
 
 ## Installation
 
@@ -10,9 +20,25 @@ If you have rust toolchain installed, you can just do:
 cargo install gprofile
 ```
 
-Alternatively, you can download pre-build binaries from the [release page](https://github.com/pjmp/gprofile/releases).
+Alternatively, you can download pre-build binaries from the [release page](https://github.com/pjmp/gprofile/releases) to you $PATH.
 
 ## Usage
+
+```shell
+# list available profiles
+git profile --list
+
+# user work profile
+git profile --use=work
+
+# delete `work` profile
+git profile --delete=work
+
+# edit `personal` profile
+git profile --edit=personal
+```
+
+## Help
 
 ```text
 USAGE:

@@ -2,15 +2,8 @@
 name = "gprofile"
 version = "0.1.0"
 edition = "2021"
-description = """
-Quickly switch git user, email with ease.
-"""
+description = "Quickly switch and manage multiple git user profiles."
 
 [[bin]]
 name = "git-profile"
 path = "src/main.rs"
-
-[profile.release]
-lto = true
-codegen-units = 1
-panic = "abort"
