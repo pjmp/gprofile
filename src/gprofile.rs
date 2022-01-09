@@ -40,7 +40,8 @@ OPTIONS:
   -l, --list              List available profiles
   -d, --delete=<PROFILE>  Delete a given profile
   -e, --edit=<PROFILE>    Edit a given profile
-  -u, --use=<PROFILE>     Set the given profile as current user name and email",
+  -u, --use=<PROFILE>     Set the given profile as current user name and email
+",
         app = env!("CARGO_PKG_NAME"),
         version = env!("CARGO_PKG_VERSION"),
         description = env!("CARGO_PKG_DESCRIPTION")

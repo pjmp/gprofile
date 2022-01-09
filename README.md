@@ -52,9 +52,9 @@ FLAGS:
   -v, --version         Prints version information
 
 OPTIONS:
-  -c, --create          Create a new profile
-  -l, --list            List available profiles
-  -d, --delete PROFILE  Delete a given profile
-  -e, --edit PROFILE    Edit a given profile
-  -u, --use PROFILE     Use profile as current git config.user & config.email
+  -c, --create            Create a new profile
+  -l, --list              List available profiles
+  -d, --delete=<PROFILE>  Delete a given profile
+  -e, --edit=<PROFILE>    Edit a given profile
+  -u, --use=<PROFILE>     Set the given profile as current user name and email
 ```
