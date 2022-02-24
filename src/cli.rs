@@ -17,10 +17,10 @@ FLAGS:
   -v, --version         Prints version information
 
 OPTIONS:
+  -c, --create            Create a new profile
   -r, --remove=<PROFILE>  Delete a given profile
   -e, --edit=<PROFILE>    Edit a given profile
   -u, --use=<PROFILE>     Set the given profile as current user name and email
-  -c, --create            Create a new profile
   -l, --list              List available profiles
   -d --dump-config        Dump config path & config to stdout
 ",
