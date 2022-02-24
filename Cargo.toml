@@ -1,15 +1,15 @@
 [package]
-name = "gprofile"
-version = "0.1.0"
-edition = "2021"
-description = "Quickly switch and manage multiple git user profiles."
 authors = ["pjmp"]
-keywords = ["cli", "gprofile", "git", "git-profile", "git-user"]
 categories = ["command-line-utilities"]
-readme = "README.md"
-license = "MIT OR Apache-2.0"
+description = "Quickly switch and manage multiple git user profiles."
+edition = "2021"
 homepage = "https://github.com/pjmp/gprofile"
+keywords = ["cli", "gprofile", "git", "git-profile", "git-user"]
+license = "MIT OR Apache-2.0"
+name = "gprofile"
+readme = "README.md"
 repository = "https://github.com/pjmp/gprofile"
+version = "0.2.0"
 
 [[bin]]
 name = "git-profile"
