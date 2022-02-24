@@ -1,7 +1,5 @@
 use std::{env, error::Error, fs::File, io, process};
 
-use crate::cli::gprofile::db_file;
-
 #[path = "./gprofile.rs"]
 mod gprofile;
 
@@ -50,9 +48,9 @@ pub(crate) fn run() -> Result<(), Box<dyn Error>> {
                 println!(env!("CARGO_PKG_VERSION"))
             }
             "--dump-config" | "-d" => {
-                println!("{}\n", db_file().display());
+                println!("{}\n", gprofile::db_file().display());
 
-                let mut file = File::open(db_file())?;
+                let mut file = File::open(gprofile::db_file())?;
 
                 io::copy(&mut file, &mut io::stdout())?;
             }
